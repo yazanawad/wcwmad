@@ -11,8 +11,12 @@ import {
   TouchableOpacity,
 } from "react-native";
 import ClassSelectionPage from "./ClassSelectionPage";
+import googleSignIn from "../firebase/googleSignIn";
+require("firebase/auth");
+require("firebase/database");
 
 function LandingPage(props) {
+  firebaseSignIn = new googleSignIn();
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.wcwmad}>Why Can't We Make a Difference</Text>
@@ -20,7 +24,14 @@ function LandingPage(props) {
       <StatusBar style="auto" />
       <TouchableOpacity>
         <View style={styles.goToProfile}>
-          <Text style={styles.goToFileText}>Google Login Here</Text>
+          <Text
+            style={styles.goToFileText}
+            onPress={() => {
+              this.firebaseSignIn.signInWithGoogleAsync();
+            }}
+          >
+            Google Login Here
+          </Text>
         </View>
       </TouchableOpacity>
     </SafeAreaView>

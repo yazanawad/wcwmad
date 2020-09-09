@@ -12,6 +12,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import StudentProfileVertical from "./StudentProfileVertical";
+import firebase from "@firebase/app";
 
 function IndividualStudentProfile(props) {
   return (
@@ -23,6 +24,12 @@ function IndividualStudentProfile(props) {
       <ScrollView style={styles.scrollView}>
         <StudentProfileVertical />
       </ScrollView>
+      <Button
+        title="Sign Out"
+        onPress={() => {
+          firebase.auth().signOut();
+        }}
+      />
     </SafeAreaView>
   );
 }
