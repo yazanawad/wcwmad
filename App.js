@@ -16,7 +16,7 @@ require("firebase/auth");
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
 
 export default function App() {
-  return <CreateASchool />;
+  return <SchoolSelection />;
 }
 
 function Router() {
